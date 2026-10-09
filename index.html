@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Mensajero Noticias · Semanario Digital Argentino</title>
+<meta name="description" content="El Mensajero Noticias — semanario digital argentino. La verdad puede más que la razón.">
+<style>
+:root{--navy:#16265c;--gold:#c9a227;--paper:#faf8f2;--ink:#1c1c28;--mut:#6b6b76;--line:#e5ddcb}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.topbar{background:var(--navy);color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:.8rem;display:flex;justify-content:space-between;align-items:center;padding:.45rem 1rem;gap:.5rem;flex-wrap:wrap}
+.topbar .ed{letter-spacing:.06em}
+.counter{display:flex;align-items:center;gap:.5rem}
+.counter img{height:30px;border-radius:6px}
+.counter b{color:var(--gold);font-size:1rem}
+.masthead{text-align:center;padding:1.4rem 1rem .8rem;border-bottom:3px double var(--navy)}
+.masthead img.logo{max-width:520px;width:92%;height:auto}
+.slogan{font-style:italic;color:var(--navy);font-size:1.15rem;margin-top:.4rem;letter-spacing:.02em}
+.slogan b{color:var(--gold)}
+nav{position:sticky;top:0;z-index:50;background:var(--navy);display:flex;overflow-x:auto;scrollbar-width:none}
+nav a{color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.8rem 1rem;white-space:nowrap;border-right:1px solid rgba(255,255,255,.12)}
+nav a:hover{background:var(--gold);color:var(--navy)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1rem}
+.tapa{padding:1.6rem 0 .6rem}
+.tapa .kicker{font-family:Arial,sans-serif;color:var(--gold);font-weight:800;letter-spacing:.25em;font-size:.75rem;margin-bottom:.6rem}
+.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:1.2rem}
+.hero .main h1{font-size:2rem;line-height:1.2;margin:.5rem 0}
+.hero .main img{width:100%;border-radius:8px}
+.hero .side{display:flex;flex-direction:column;gap:1rem}
+.mini{border-top:2px solid var(--navy);padding-top:.6rem}
+.mini img{width:100%;border-radius:6px;margin-bottom:.4rem}
+.mini h3{font-size:1.05rem}
+.seccion{padding:1.8rem 0 .4rem;border-top:1px solid var(--line);margin-top:1rem}
+.sechead{display:flex;align-items:baseline;gap:.8rem;border-bottom:3px solid var(--navy);margin-bottom:1rem;padding-bottom:.35rem;flex-wrap:wrap}
+.sechead h2{font-size:1.5rem;letter-spacing:.06em;color:var(--navy)}
+.sechead span{font-family:Arial,sans-serif;font-size:.8rem;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(22,38,92,.06)}
+.card.lead{grid-column:1/-1;flex-direction:row}
+.card.lead .imgwrap{flex:1.1;min-height:220px}
+.card .imgwrap{background:#e9e4d6;min-height:150px}
+.card img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
+.card.lead img{aspect-ratio:auto;min-height:220px}
+.card .txt{padding:.9rem 1rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card h3{font-size:1.08rem;line-height:1.3}
+.card.lead h3{font-size:1.35rem}
+.card p{font-size:.94rem;color:#333}
+.byline{font-family:Arial,sans-serif;font-size:.72rem;color:var(--mut);margin-top:auto;padding-top:.4rem}
+.src{font-family:Arial,sans-serif;font-size:.7rem;color:#9a9aa5}
+.banner-radio{margin:2rem 0;background:linear-gradient(120deg,#0d1533,#24377e);color:#fff;border-radius:12px;padding:1.6rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;border:1px solid var(--gold)}
+.banner-radio .b{flex:1;min-width:220px}
+.banner-radio h3{font-size:1.5rem;margin-bottom:.3rem}
+.banner-radio h3 span{color:var(--gold)}
+.banner-radio p{font-family:Arial,sans-serif;font-size:.92rem;opacity:.92}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-family:Arial,sans-serif;font-weight:800;padding:.7rem 1.4rem;border-radius:999px;margin-top:.7rem;letter-spacing:.04em}
+.btn:hover{background:#fff}
+.social{display:flex;gap:.8rem;margin-top:.8rem;flex-wrap:wrap}
+.social a{font-family:Arial,sans-serif;font-size:.82rem;font-weight:700;border:1px solid rgba(255,255,255,.4);padding:.45rem .9rem;border-radius:999px}
+.social a:hover{background:rgba(255,255,255,.15)}
+.adbox{margin:2rem 0;border:2px dashed var(--gold);border-radius:12px;padding:2rem;text-align:center;color:var(--mut);font-family:Arial,sans-serif}
+.adbox b{color:var(--navy);letter-spacing:.15em}
+.entrev{margin:1rem 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:2rem;text-align:center}
+.entrev h3{color:var(--navy);font-size:1.4rem;margin-bottom:.5rem}
+.entrev p{color:var(--mut);font-family:Arial,sans-serif;font-size:.95rem;max-width:560px;margin:0 auto}
+.horogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.signo{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:1rem}
+.signo h4{color:var(--navy);margin-bottom:.4rem;font-size:1.02rem}
+.signo p{font-size:.9rem;color:#333}
+footer{background:var(--navy);color:#dfe3f5;margin-top:2.5rem;padding:2rem 1rem;font-family:Arial,sans-serif;font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+footer a{color:var(--gold)}
+footer .fbrand{font-family:Georgia,serif;font-size:1.2rem;color:#fff;margin-bottom:.4rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.card.lead{flex-direction:column}.hero .main h1{font-size:1.5rem}}
+</style>
+</head>
+<body id="inicio">
+<div class="topbar">
+  <div class="ed">EDICIÓN Nº 1 · VIERNES 9 DE OCTUBRE DE 2026</div>
+  <div class="counter"><img src="assets/mate-bandera.gif" alt="Mate argentino"><span>VISITAS&nbsp;<b id="visitas">…</b></span></div>
+</div>
+<header class="masthead">
+  <img class="logo" src="assets/logo-mensajero.webp" alt="El Mensajero Noticias">
+  <div class="slogan">&ldquo;La verdad <b>puede más</b> que la razón&rdquo;</div>
+</header>
+<nav>
+<a href="#inicio">INICIO</a><a href="#locales">LOCALES</a><a href="#politica">POLÍTICA</a><a href="#internacionales">INTERNACIONALES</a><a href="#actualidad">ACTUALIDAD</a><a href="#espectaculos">ESPECTÁCULOS</a><a href="#deportes">DEPORTES</a><a href="#economia">ECONOMÍA</a><a href="#paranormal">PARANORMAL</a><a href="#arte">ARTE Y POESÍA</a><a href="#entrevistas">ENTREVISTAS</a><a href="#horoscopo">HORÓSCOPO</a>
+</nav>
+<div class="wrap">
+  <div class="tapa">
+    <div class="kicker">● LA TAPA</div>
+    <div class="hero">
+      <div class="main">
+        <img src="https://www.larosca.com.ar/admi/upload/6a8ecea1ec5c4_CongresoPrensaDiputados.jpg" alt="Diputados: la oposición quiere voltear el DNU 70 y el Gobierno mueve fichas para frenarla" onerror="this.style.display='none'">
+        <h1>Diputados: la oposición quiere voltear el DNU 70 y el Gobierno mueve fichas para frenarla</h1>
+        <p>La Cámara de Diputados se prepara para una sesión de alto voltaje el jueves 15 de octubre. La oposición buscará rechazar el DNU 70/2023 de Javier Milei con un objetivo central: reponer la Ley de Tierras, que pone límites a la compra de campos por parte de extranjeros, derogada por el decreto. En el temario también aparecen la morosidad y la discapacidad, dos flancos sensibles para la Casa Rosada. El oficialismo no se quedó quieto: convocó a un plenario de comisiones para el miércoles 14 y reflotó el proyecto de Inviolabilidad de la Propiedad Privada, que incluiría un régimen de venta de tierras a foráneos, como prenda de negociación para los aliados. La pulseada se define voto a voto y puede marcar el rumbo del mega decreto presidencial.</p>
+        <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div>
+      </div>
+      <div class="side">
+<div class="mini"><img src="http://static.emol.cl/emol50/Fotos/2018/10/28/file_20181028230020.jpg" alt="" onerror="this.style.display='none'"><h3>Brasil: Flávio Bolsonaro se impone en primera vuelta y disputará el balotaje con Lula</h3><div class="byline">Por <b>Diego Almada</b></div></div>
+<div class="mini"><img src="https://lacatholics.org/wp-content/uploads/2023/03/shutterstock_561912127-scaled-e1714427078262-2048x1252.jpg" alt="" onerror="this.style.display='none'"><h3>Córdoba se prepara para recibir al papa León XIV: vigilia con Jairo y Jorge Rojas</h3><div class="byline">Por <b>Mariana Quiroga</b></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner-radio">
+    <div class="b">
+      <h3>📻 RADIO <span>INTENSA</span> · EN VIVO</h3>
+      <p>La radio que te acompaña todo el día. Programas en vivo, música y la mejor compañía.</p>
+      <a class="btn" href="https://radio-intensa.vercel.app" target="_blank" rel="noopener">ESCUCHAR AHORA</a>
+      <div class="social">
+        <a href="https://www.youtube.com/@intensaradio" target="_blank" rel="noopener">▶ YouTube</a>
+        <a href="https://www.instagram.com/intensaradio24.7" target="_blank" rel="noopener">📸 Instagram</a>
+      </div>
+    </div>
+  </div>
+
+    <section id="locales" class="seccion">
+      <div class="sechead"><h2>LOCALES</h2><span>Río Cuarto · Córdoba y la provincia</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://lacatholics.org/wp-content/uploads/2023/03/shutterstock_561912127-scaled-e1714427078262-2048x1252.jpg" alt="Córdoba se prepara para recibir al papa León XIV: vigilia con Jairo y Jorge Rojas" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Córdoba se prepara para recibir al papa León XIV: vigilia con Jairo y Jorge Rojas</h3>
+      <p>La visita del papa León XIV a Córdoba ya se vive en toda la provincia. La noche previa a su llegada habrá una vigilia multitudinaria con música en vivo: los primeros artistas confirmados son Jairo y Jorge Rojas, y la comisión organizadora anunció más nombres para la noche del lunes 9 de noviembre, con accesos abiertos desde temprano. El acto central será la misa en el predio de FAdeA, y ya se habilitaron las inscripciones gratuitas, recomendadas por seguridad y accesibilidad aunque no serán obligatorias. Será la primera visita de un pontífice a la provincia en décadas y se espera una convocatoria histórica de fieles de todo el país.</p>
+      <div class="byline">Por <b>Mariana Quiroga</b> · El Mensajero Noticias</div><div class="src">Fuente: flipr.com.ar</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.renault.ec/CountriesData/Ecuador/images/cars/HELIOS/2026/LB3P4prereveal/Overview/renault-lb3p4-prereveal-overview-001_ig_w960_h540.jpg" alt="La Renault Niagara ya se fabrica en Córdoba: arranca una nueva era industrial" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>La Renault Niagara ya se fabrica en Córdoba: arranca una nueva era industrial</h3>
+      <p>La planta de Renault en Córdoba puso en marcha la producción de la Niagara, la nueva pick-up compacta con la que la marca apuesta fuerte al mercado regional. El inicio de la fabricación marca un hito para la industria automotriz cordobesa, con el foco puesto en la competitividad y el desarrollo de proveedores locales. La camioneta, pensada para el trabajo y el uso familiar, buscará posicionarse en uno de los segmentos más peleados del país. Desde la empresa destacaron que el proyecto consolida a Córdoba como polo productivo y abre una etapa de crecimiento para la planta y toda su cadena de valor.</p>
+      <div class="byline">Por <b>Mariana Quiroga</b> · El Mensajero Noticias</div><div class="src">Fuente: flipr.com.ar</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://directoriolegislativo.org/wp-content/uploads/2023/05/shutterstock_1618686730.jpg" alt="Prunotto marcó distancia con Milei: el Gobierno abandonó a jubilados y discapacitados" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Prunotto marcó distancia con Milei: el Gobierno abandonó a jubilados y discapacitados</h3>
+      <p>La vicegobernadora Myrian Prunotto, número dos de Martín Llaryora, tomó distancia pública del gobierno nacional luego de haber integrado la comitiva argentina que viajó a París. La dirigente cordobesa consideró que la gestión de Javier Milei abandonó a los jubilados y a las personas con discapacidad, y cuestionó el rumbo de sus medidas. El gesto se lee como una señal del peronismo cordobés, que busca diferenciarse del oficialismo nacional sin romper del todo los puentes. La declaración agitó el tablero político provincial en una semana cargada de definiciones y movimientos internos.</p>
+      <div class="byline">Por <b>Mariana Quiroga</b> · El Mensajero Noticias</div><div class="src">Fuente: flipr.com.ar</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.soccerbible.com/media/145869/argentina-8-min.jpg" alt="Estudiantes de Río Cuarto, al borde del abismo: si pierde con River, desciende" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Estudiantes de Río Cuarto, al borde del abismo: si pierde con River, desciende</h3>
+      <p>El León del Imperio vive horas dramáticas. Estudiantes de Río Cuarto está último en la Zona B del Torneo Clausura, en la tabla anual y en la de los promedios, y puede perder la categoría este sábado 10 de octubre si cae ante River en el Monumental. Con apenas 11 puntos en 27 partidos y diez encuentros consecutivos sin ganar, el equipo cordobés depende además del resultado entre Aldosivi y Sarmiento del viernes: si el Tiburón suma puntos, solo le servirá ganar en Núñez. Una derrota lo condenaría al descenso a la Primera Nacional y cerraría una de las peores campañas de su historia.</p>
+      <div class="byline">Por <b>Mariana Quiroga</b> · El Mensajero Noticias</div><div class="src">Fuente: soydelmillo.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://blog.konga.com/wp-content/uploads/2024/10/shutterstock_2521978383-1536x823.jpg" alt="Córdoba Rosa 2026: controles gratuitos y 10.000 mamografías en octubre" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Córdoba Rosa 2026: controles gratuitos y 10.000 mamografías en octubre</h3>
+      <p>Con el lema Elijo Cuidarme, la provincia puso en marcha la campaña Córdoba Rosa 2026 de prevención del cáncer de mama. La Semana Rosa ofrece controles y estudios gratuitos en Plaza San Martín, con 140 turnos protegidos entregados por el Ministerio de Salud y la distribución de 500 lazos rosas junto a los CPC. Durante octubre, mes de la concientización, se prevé realizar 10.000 mamografías en todo el territorio provincial, en el marco de la Ley 10.503. También participan fundaciones con cortes de pelo solidarios para pelucas oncológicas y el stand de Punto Mujer con acompañamiento integral.</p>
+      <div class="byline">Por <b>Mariana Quiroga</b> · El Mensajero Noticias</div><div class="src">Fuente: laola.com.ar</div></div>
+    </article></div>
+    </section>
+    <section id="politica" class="seccion">
+      <div class="sechead"><h2>POLÍTICA</h2><span>Toda la Argentina</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://www.larosca.com.ar/admi/upload/6a8ecea1ec5c4_CongresoPrensaDiputados.jpg" alt="Diputados: la oposición quiere voltear el DNU 70 y el Gobierno mueve fichas para frenarla" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Diputados: la oposición quiere voltear el DNU 70 y el Gobierno mueve fichas para frenarla</h3>
+      <p>La Cámara de Diputados se prepara para una sesión de alto voltaje el jueves 15 de octubre. La oposición buscará rechazar el DNU 70/2023 de Javier Milei con un objetivo central: reponer la Ley de Tierras, que pone límites a la compra de campos por parte de extranjeros, derogada por el decreto. En el temario también aparecen la morosidad y la discapacidad, dos flancos sensibles para la Casa Rosada. El oficialismo no se quedó quieto: convocó a un plenario de comisiones para el miércoles 14 y reflotó el proyecto de Inviolabilidad de la Propiedad Privada, que incluiría un régimen de venta de tierras a foráneos, como prenda de negociación para los aliados. La pulseada se define voto a voto y puede marcar el rumbo del mega decreto presidencial.</p>
+      <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div><div class="src">Fuente: El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://radionewmaster.com.ar/wp-content/uploads/2026/08/tribunales-corte-suprema-justicia-csjn-1024x576.jpg" alt="La Corte Suprema, a un paso de fallar sobre la Ley de Tierras" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>La Corte Suprema, a un paso de fallar sobre la Ley de Tierras</h3>
+      <p>El máximo tribunal del país podría definir en estos días el futuro de las restricciones a la venta de tierras a extranjeros. La Corte tiene sobre la mesa un planteo de la organización ambientalista Árbol de Pie, de Bariloche, que pide tratar por separado su reclamo contra el capítulo de tierras del DNU 70/2023. Dos ministros se mostrarían dispuestos a atender el caso, pero la falta de unanimidad con el tercer integrante obligó a convocar a dos conjueces. Si al menos uno acompaña el reclamo, la Ley de Tierras podría volver a regir. La interna del tribunal sumó tensión en los últimos días y el fallo, que se espera para este viernes, puede cambiar por completo el escenario que se discute en el Congreso.</p>
+      <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div><div class="src">Fuente: El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://periodicoparatodos.com.ar/wp-content/uploads/2024/07/36-800x445.jpg" alt="AySA vuelve a manos privadas, 20 años después de su estatización" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>AySA vuelve a manos privadas, 20 años después de su estatización</h3>
+      <p>El Gobierno nacional anunció la privatización de AySA, la empresa de agua y cloacas del área metropolitana de Buenos Aires, dos décadas después de que el Estado retomara su control. Desde el Ministerio de Economía la describieron como un modelo de disfunción administrativa: entre 2006 y 2023 recibió más de 13.400 millones de dólares del Tesoro, pero un tercio del área concesionada sigue sin agua potable ni cloacas y las pérdidas de agua no contabilizada llegan al 42%. Antes de licitarla, el Ejecutivo aplicó su ajuste: la tarifa subió 538% desde diciembre de 2023 y unos 1.200 empleados aceptaron retiros voluntarios. Es una de las privatizaciones más emblemáticas de la gestión Milei, junto a IMPSA, la hidrovía y Transener.</p>
+      <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div><div class="src">Fuente: El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://conlagentenoticias.com/wp-content/uploads/2021/04/Malvinas-argentinas2.jpg" alt="Ley Malvinas: el Gobierno no quiere partir el proyecto y propone una bicameral" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Ley Malvinas: el Gobierno no quiere partir el proyecto y propone una bicameral</h3>
+      <p>El tratamiento de la Ley de Defensa de la Soberanía Nacional, conocida como Ley Malvinas, entró en una zona de turbulencia en Diputados. El Ejecutivo descartó de plano dividir el proyecto en títulos separados, como pedían algunos bloques, y ofreció como alternativa la creación de una comisión bicameral para el Consejo de Seguridad. La secretaria de Legal y Técnica, María Ibarzábal Murphy, defendió la iniciativa en el plenario de comisiones y el oficialismo decidió postergar el dictamen para seguir negociando votos. La iniciativa busca fijar una política de Estado sobre las islas y necesita un consenso amplio que, por ahora, no aparece. Las negociaciones seguirán la próxima semana.</p>
+      <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div><div class="src">Fuente: El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://elgritodelsur.com.ar/wp-content/uploads/2024/04/Marcha-universitaria.jpg" alt="Universidades: la Justicia ordenó aplicar la ley de financiamiento y el Gobierno apeló" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Universidades: la Justicia ordenó aplicar la ley de financiamiento y el Gobierno apeló</h3>
+      <p>El conflicto por el financiamiento de las universidades nacionales sumó un nuevo capítulo judicial. La Justicia Federal ordenó al Gobierno aplicar la Ley de Financiamiento Universitario, pero el Ejecutivo anunció que apelará la medida: es la novena apelación oficial en esta causa. Desde la Casa Rosada cuestionan el fallo con dureza, mientras las casas de estudio denuncian un ahogo presupuestario que ya lleva meses. La pulseada llega en un momento caliente: se acerca la Quinta Marcha Federal Universitaria, que promete ser masiva en todo el país. El tema, que combina educación, presupuesto y calle, se convirtió en uno de los frentes más incómodos para el Gobierno en la previa de la sesión opositora en Diputados.</p>
+      <div class="byline">Por <b>Martín Echeverri</b> · El Mensajero Noticias</div><div class="src">Fuente: El Mensajero Noticias</div></div>
+    </article></div>
+    </section>
+    <section id="internacionales" class="seccion">
+      <div class="sechead"><h2>INTERNACIONALES</h2><span>El mundo, semana a semana</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="http://static.emol.cl/emol50/Fotos/2018/10/28/file_20181028230020.jpg" alt="Brasil: Flávio Bolsonaro se impone en primera vuelta y disputará el balotaje con Lula" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Brasil: Flávio Bolsonaro se impone en primera vuelta y disputará el balotaje con Lula</h3>
+      <p>La ultraderecha brasileña dio el golpe en la primera vuelta de las elecciones presidenciales del domingo: Flávio Bolsonaro, del Partido Liberal, obtuvo el 47% de los votos y superó al presidente Luiz Inácio Lula da Silva, que quedó segundo con el 45%. Como ningún candidato alcanzó la mitad más uno de los sufragios, ambos se enfrentarán en la segunda vuelta del 25 de octubre. Flávio, hijo del exmandatario Jair Bolsonaro —preso y condenado a 27 años por intento de golpe—, celebró proclamando &#x27;el fin de la era del Partido de los Trabajadores&#x27;. Lula, en cambio, prometió que &#x27;mañana comienza una nueva campaña&#x27; y ya rediseña su estrategia para seducir a los abstencionistas y al voto de centro en las tres semanas decisivas.</p>
+      <div class="byline">Por <b>Diego Almada</b> · El Mensajero Noticias</div><div class="src">Fuente: Radar LATAM 360 / CNN en Español</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://ukraine.ohchr.org/sites/default/files/styles/large/public/2025-06/IMG_2671.jpg.webp?itok=5eWYlB_g" alt="Ucrania y Rusia escalan: ataque masivo sobre Kiev y drones contra Moscú" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Ucrania y Rusia escalan: ataque masivo sobre Kiev y drones contra Moscú</h3>
+      <p>La guerra en Ucrania vivió una de sus semanas más violentas. Rusia lanzó una ofensiva con misiles y drones contra Kiev y otras regiones que dejó al menos 25 muertos, entre ellos cinco niños, según las autoridades ucranianas. El bombardeo alcanzó zonas residenciales e infraestructura civil. Casi en simultáneo, Ucrania ejecutó uno de sus mayores ataques con drones contra Moscú y su región en dos años: dos personas murieron y un gran depósito de petróleo se incendió. La escalada también llegó al Mar Negro, donde buques comerciales fueron atacados con drones: una embarcación de propiedad turca fue alcanzada y otra se hundió cerca de Bulgaria, con tripulantes desaparecidos. La seguridad de la navegación comercial vuelve a estar en jaque.</p>
+      <div class="byline">Por <b>Diego Almada</b> · El Mensajero Noticias</div><div class="src">Fuente: Open Chronicle / De Ahora</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="http://boardinginfo.com/wp-content/uploads/2025/07/riyadh-airport.webp" alt="Los hutíes golpean dos aeropuertos saudíes y dejan tres muertos" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Los hutíes golpean dos aeropuertos saudíes y dejan tres muertos</h3>
+      <p>El conflicto de Yemen se extendió con fuerza al territorio saudita. Rebeldes hutíes, respaldados por Irán, atacaron esta semana los aeropuertos de Abha, cerca de la frontera con Yemen, y Rey Jalid, en Riad, entre el 6 y el 7 de octubre. El saldo fue de tres civiles muertos —dos mujeres, una marroquí y una argelina, en Abha, y un ciudadano sudanés en Riad— y 36 heridos. La misión de Estados Unidos en Arabia Saudita emitió una alerta de seguridad ante posibles nuevos ataques con drones y misiles. La guerra, que enfrenta desde 2015 a los hutíes con el gobierno yemení y la coalición liderada por Riad, se recrudeció en julio pasado tras el colapso del alto el fuego entre Washington y Teherán.</p>
+      <div class="byline">Por <b>Diego Almada</b> · El Mensajero Noticias</div><div class="src">Fuente: CNN en Español</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://townsquare.media/site/521/files/2021/04/Oil-barrels-and-derricks-Thinkstock-Photos-506546524.jpg?w=1200&amp;q=75&amp;format=natural" alt="El G7 libera reservas de diésel para frenar precios récord" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>El G7 libera reservas de diésel para frenar precios récord</h3>
+      <p>Los líderes del G7 acordaron liberar hasta 100 millones de barriles de crudo y diésel durante los próximos cuatro meses para aliviar la escasez que disparó los precios a niveles récord. El diésel, vital para el transporte de cargas y la maquinaria agrícola, cotiza en máximos históricos, en parte por las guerras en Irán y Ucrania y los recortes de exportaciones rusas tras los ataques ucranianos a sus refinerías. Tras el anuncio, el presidente Trump retiró su amenaza de prohibir las exportaciones estadounidenses de diésel, una medida que habría golpeado a los países más dependientes. El barril de Brent cerró el viernes en 102,25 dólares en Nueva York.</p>
+      <div class="byline">Por <b>Diego Almada</b> · El Mensajero Noticias</div><div class="src">Fuente: China Biz Buzz</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://travelgossip.co.uk/wp-content/uploads/2025/09/Protestors-Paris-France-Jan-2025.jpg" alt="Francia: cientos de miles marchan en defensa de la educación pública" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Francia: cientos de miles marchan en defensa de la educación pública</h3>
+      <p>Entre 250.000 y 450.000 personas se movilizaron el 6 de octubre en toda Francia para reclamar más fondos para las escuelas. La protesta, una de las más numerosas del año, denunció el deterioro de los edificios escolares, la falta de aire acondicionado y las desigualdades entre establecimientos de barrios ricos y populares. Docentes, estudiantes y familias coparon las calles de París y de decenas de ciudades. Los sindicatos exigen al gobierno un plan urgente de inversión en infraestructura educativa y mejoras salariales para el personal. La marcha reaviva el debate sobre el estado de la escuela pública francesa, en un contexto de creciente malestar social.</p>
+      <div class="byline">Por <b>Diego Almada</b> · El Mensajero Noticias</div><div class="src">Fuente: SesoLibre / DW</div></div>
+    </article></div>
+    </section>
+    <section id="actualidad" class="seccion">
+      <div class="sechead"><h2>ACTUALIDAD</h2><span>Sucesos · Naturaleza · Ciencia · Sociedad</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://www.bndu.ox.ac.uk/sites/default/files/styles/square_large/public/2025-06/glowing_neurons_image_2.jpg?itok=nWSvzAnZ" alt="Nobel de Medicina 2026: el premio que ilumina los secretos del cerebro" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Nobel de Medicina 2026: el premio que ilumina los secretos del cerebro</h3>
+      <p>La Academia sueca anunció esta semana a los ganadores del Nobel de Fisiología o Medicina 2026: Karl Deisseroth, Peter Hegemann y Georg Nagel. El reconocimiento premia el desarrollo de la optogenética, una técnica revolucionaria que usa la luz para encender y apagar neuronas a voluntad. Gracias a este método, los científicos pueden identificar con precisión qué células del cerebro cumplen cada función, como si tuvieran un interruptor luminoso para cada circuito neuronal. El avance ya transformó la neurociencia y abre la puerta a futuros tratamientos para enfermedades como el Parkinson, la depresión y la epilepsia. Es una de las herramientas más poderosas que la medicina moderna le debe a la biología.</p>
+      <div class="byline">Por <b>Javier Roldán</b> · El Mensajero Noticias</div><div class="src">Fuente: CNN / KFF Health News</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://donporque.com/wp-content/uploads/2026/06/comienzo-del-huracan-el-nino-2026.webp" alt="Alerta El Niño: científicos piden medidas de emergencia ante un posible &quot;superniño&quot;" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Alerta El Niño: científicos piden medidas de emergencia ante un posible &quot;superniño&quot;</h3>
+      <p>Científicos y divulgadores de todo el mundo lanzaron la campaña Alerta El Niño, que reclama a los gobiernos prepararse ya ante el episodio climático de 2026-2027. La Organización Meteorológica Mundial confirmó que el fenómeno está instalado, se intensificará en los próximos meses y probablemente persista hasta febrero del año próximo. Por su posible magnitud, ya se habla de un &quot;superniño&quot;, capaz de agravar sequías, inundaciones y olas de calor en varias regiones. La iniciativa pide incorporar estos riesgos a los planes de emergencia, con foco en el agua, la agricultura, la salud pública y la protección civil, y habilitó una plataforma digital para seguir su evolución. El mensaje es claro: actuar antes de que los daños obliguen a reaccionar.</p>
+      <div class="byline">Por <b>Javier Roldán</b> · El Mensajero Noticias</div><div class="src">Fuente: Tendencias21</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.apepoc.es/images/fotos/2026/verano.png" alt="Europa vivió un verano de calor extremo sin precedentes" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Europa vivió un verano de calor extremo sin precedentes</h3>
+      <p>Más de la mitad de Europa sufrió este verano niveles &quot;muy intensos&quot; de estrés térmico, el porcentaje más alto jamás registrado, según informó el servicio climático Copernicus de la Unión Europea. La sensación térmica superó los 38 grados en amplias zonas del continente y Europa occidental atravesó su verano más caluroso desde que existen mediciones. El calor extremo pone en riesgo la salud, sobre todo de trabajadores al aire libre, personas mayores y quienes padecen enfermedades cardiovasculares o diabetes. Además, los ríos europeos registraron sus caudales más bajos en más de tres décadas. Los científicos advierten que estos veranos abrasadores dejarán de ser la excepción para convertirse en la nueva normalidad del continente.</p>
+      <div class="byline">Por <b>Javier Roldán</b> · El Mensajero Noticias</div><div class="src">Fuente: Reuters</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.bstquarterly.com/wp-content/uploads/2024/10/2024_breakingnews_mrna-vaccine-square.jpg" alt="Histórico: una vacuna de ARNm frena la reaparición del melanoma" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Histórico: una vacuna de ARNm frena la reaparición del melanoma</h3>
+      <p>La ciencia dio un paso gigante contra el cáncer de piel. Los laboratorios Moderna y Merck anunciaron resultados positivos en fase 3 de intismeran autogene, la primera vacuna personalizada de ARN mensajero contra el melanoma. A diferencia de las vacunas tradicionales, se fabrica a medida para cada paciente a partir de las mutaciones de su propio tumor, entrenando al sistema inmune para detectar si la enfermedad intenta volver. En el ensayo INTerpath-001, con 1.137 pacientes de alto riesgo ya operados, la combinación con inmunoterapia prolongó el tiempo sin recaídas y redujo la propagación del cáncer frente al tratamiento estándar. Medios internacionales lo calificaron como un posible momento histórico en la oncología moderna.</p>
+      <div class="byline">Por <b>Javier Roldán</b> · El Mensajero Noticias</div><div class="src">Fuente: Gaceta UNAM / Cadena SER</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.planetizen.com/files/images/AdobeStock_691268275.jpeg" alt="San Juan enciende el parque solar más grande de su historia" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>San Juan enciende el parque solar más grande de su historia</h3>
+      <p>La empresa Genneia inauguró esta semana en Sarmiento el Parque Solar San Juan Sur, el complejo fotovoltaico más potente de la provincia. La obra demandó una inversión de 110 millones de dólares y desplegó 250.000 paneles bifaciales sobre 500 hectáreas en la localidad de Retamito. Con 129 megavatios de capacidad, generará energía equivalente al consumo de unos 90.000 hogares y evitará la emisión de 160.000 toneladas de dióxido de carbono por año. La electricidad se venderá a grandes usuarios industriales, con la mira puesta en la minería. Del acto participaron el gobernador Marcelo Orrego y el presidente de Genneia, Jorge Brito. San Juan ya suma 24 parques solares en operación y se consolida como polo renovable del país.</p>
+      <div class="byline">Por <b>Javier Roldán</b> · El Mensajero Noticias</div><div class="src">Fuente: InfoEnergía</div></div>
+    </article></div>
+    </section>
+    <section id="espectaculos" class="seccion">
+      <div class="sechead"><h2>ESPECTÁCULOS</h2><span>Cine · Música · Cultura</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://www.mardelplatafilmfest.com/beta39/thumbnailsxdia/generalfotodiaxdia29.jpg" alt="Mar del Plata 2026: cine argentino gratis al aire libre y homenajes a Natalia Oreiro, Agresti y Kauderer" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Mar del Plata 2026: cine argentino gratis al aire libre y homenajes a Natalia Oreiro, Agresti y Kauderer</h3>
+      <p>El festival de cine más importante del país calienta motores con una propuesta que acerca el séptimo arte a todo el mundo: habrá funciones con entrada libre y gratuita al aire libre en Villa Ocampo, con una selección de películas argentinas estrenadas durante 2026. Entre los títulos se destacan La virgen de la tosquera, de Laura Casabé, presentada como la candidata nacional al Oscar y al Goya, y Parque Lezama, de Juan José Campanella, con Luis Brandoni y Eduardo Blanco. Además, el festival rendirá homenaje a tres grandes: Natalia Oreiro, Alejandro Agresti y el compositor Emilio Kauderer recibirán el Astor a la Trayectoria, con proyecciones especiales de sus obras más recordadas.</p>
+      <div class="byline">Por <b>Lucía Ferrer</b> · El Mensajero Noticias</div><div class="src">Fuente: escribiendocine.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://rechismes.com/wp-content/uploads/2025/11/DUA-LIPA-Y-SHAKIRA.jpg" alt="Shakira y Dua Lipa hicieron historia en Madrid con un dúo sorpresa de Antología" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Shakira y Dua Lipa hicieron historia en Madrid con un dúo sorpresa de Antología</h3>
+      <p>Madrid vivió una de esas noches que quedan en la memoria colectiva: Shakira y Dua Lipa se subieron juntas al escenario para cantar Antología, el clásico de la colombiana, en un dúo sorpresa que hizo estallar al público. El encuentro entre dos de las voces latinas más poderosas del pop mundial se convirtió en minutos en uno de los momentos musicales más comentados de la semana en todo el planeta. La química sobre el escenario y la ovación del público confirmaron lo que muchos fans soñaban hace años: ver a estas dos estrellas compartiendo una canción. Las redes se inundaron de videos del momento, que ya circula como uno de los duetos del año.</p>
+      <div class="byline">Por <b>Lucía Ferrer</b> · El Mensajero Noticias</div><div class="src">Fuente: backyarddrunkard.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://fwmedia.fandomwire.com/wp-content/uploads/2026/08/12110501/animals-1024x576.jpg" alt="Ben Affleck dirige y protagoniza Animals, el thriller de Netflix que estrena el 9 de octubre" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Ben Affleck dirige y protagoniza Animals, el thriller de Netflix que estrena el 9 de octubre</h3>
+      <p>El thriller más esperado de la temporada ya tiene fecha: Animals, la nueva película dirigida y coescrita por Ben Affleck, llega a Netflix y a salas seleccionadas este 9 de octubre. Affleck también protagoniza la historia junto a Kerry Washington: él interpreta a un candidato a alcalde de Los Ángeles y ella a su esposa, una pareja que ve su mundo derrumbarse cuando su hijo es secuestrado y deben reunir un rescate mientras los secretos amenazan con destruirlos. El elenco se completa con figuras de peso como Gillian Anderson y Steven Yeun. La dupla presentó la película en una premiere en Ciudad de México que reunió a cientos de fans y encendió la expectativa mundial.</p>
+      <div class="byline">Por <b>Lucía Ferrer</b> · El Mensajero Noticias</div><div class="src">Fuente: backyarddrunkard.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.concertaddicts.com/wp-content/uploads/2025/07/Rod-Stewart-4-949x632.jpg" alt="Rod Stewart anuncia su retiro: The Final Encore será su última gira" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Rod Stewart anuncia su retiro: The Final Encore será su última gira</h3>
+      <p>Después de más de seis décadas sobre los escenarios, Sir Rod Stewart anunció que cuelga los botines: su próxima gira, bautizada The Final Encore, será la última de su carrera. El legendario rockero británico, dueño de himnos como Do You Think I&#x27;m Sexy?, comunicó la decisión con un emotivo mensaje a sus seguidores, agradeciendo una vida sobre los escenarios que superó todo lo que había imaginado. La noticia sacudió al mundo de la música: Stewart es una de las voces más reconocibles del rock y su despedida marcará el cierre de una era. Los fans de todo el mundo ya se preparan para acompañarlo en este último adiós, que promete ser una celebración inolvidable.</p>
+      <div class="byline">Por <b>Lucía Ferrer</b> · El Mensajero Noticias</div><div class="src">Fuente: madcapglobalentertainment.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://obrazki.ai/cdn-cgi/image/width=1200,quality=85,format=auto,fit=scale-down/nb/futuristic-cinema--holographic-ai-actors--audience-in-awe--vibrant-neon-lights" alt="Llega a Buenos Aires el primer festival de cine e inteligencia artificial del país" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Llega a Buenos Aires el primer festival de cine e inteligencia artificial del país</h3>
+      <p>Buenos Aires se suma a la vanguardia mundial: el 30 de octubre la ciudad será sede por primera vez del World AI Film Festival, el encuentro internacional que cruza el cine con la inteligencia artificial. La jornada se desarrollará en el Centro de Convenciones porteño, en el marco de TecWeek 2026, con proyecciones, clases magistrales y paneles junto a referentes de la industria audiovisual y tecnológica. Uno de los platos fuertes será el concurso para creadores argentinos, con seis categorías que van del cortometraje a la microserie. Y hay premio mayor: cinco trabajos nacionales viajarán al circuito Road to Cannes, con final mundial en abril de 2027.</p>
+      <div class="byline">Por <b>Lucía Ferrer</b> · El Mensajero Noticias</div><div class="src">Fuente: haceinstantes.com</div></div>
+    </article></div>
+    </section>
+    <section id="deportes" class="seccion">
+      <div class="sechead"><h2>DEPORTES</h2><span>Fútbol y todos los deportes</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://apuestivas.com.ar/wp-content/uploads/2025/01/La-Bombonera-768x575.jpg" alt="Fecha 11 del Clausura: Boca goleó, Belgrano se quedó con el clásico y Argentinos manda en la Zona B" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Fecha 11 del Clausura: Boca goleó, Belgrano se quedó con el clásico y Argentinos manda en la Zona B</h3>
+      <p>La undécima fecha del Torneo Clausura se jugó del 2 al 5 de octubre y dejó resultados resonantes. Boca se hizo fuerte en La Bombonera y goleó 3-0 a Unión, mientras que Instituto dio el gran golpe al aplastar 4-1 a Independiente en Avellaneda. En Córdoba hubo clásico: Belgrano venció 1-0 a Talleres y se quedó con el duelo interzonal. Defensa y Justicia sorprendió al golear 3-0 a San Lorenzo, y Racing, con DT interino tras la salida de Vojvoda, volvió al triunfo al ganarle 2-1 a Estudiantes de Río Cuarto. Argentinos Juniors derrotó 2-1 a Tigre y quedó como único líder de la Zona B con 21 puntos. También ganaron Huracán y Estudiantes; Vélez empató 2-2 con Platense. La fecha se completa el 14 de octubre con Sarmiento-River.</p>
+      <div class="byline">Por <b>Caro Méndez</b> · El Mensajero Noticias</div><div class="src">Fuente: TyC Sports</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://media.tycsports.com/files/2019/11/11/76947/messi-camiseta.jpg" alt="La Scaloneta, en modo Mundial: amistosos ante Venezuela y Puerto Rico en Estados Unidos" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>La Scaloneta, en modo Mundial: amistosos ante Venezuela y Puerto Rico en Estados Unidos</h3>
+      <p>Con la clasificación al Mundial 2026 ya asegurada, la Selección argentina entra de lleno en la etapa de preparación. En la fecha FIFA de octubre, el equipo de Lionel Scaloni disputará dos amistosos en Estados Unidos: el sábado 10 frente a Venezuela en el Hard Rock Stadium de Miami y el martes 13 ante Puerto Rico en Chicago. Serán las primeras pruebas formales pensando en la Copa del Mundo que organizarán Estados Unidos, México y Canadá. Para noviembre, la AFA ya diagramó una gira por África y Asia, con partidos en Luanda, capital de Angola, y en Kerala, India, con rivales a confirmar. La Albiceleste, campeona del mundo y bicampeona de América, empieza a afinar detalles para defender el título el año próximo.</p>
+      <div class="byline">Por <b>Caro Méndez</b> · El Mensajero Noticias</div><div class="src">Fuente: AFA / La Popu</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.perfect-tennis.com/wp-content/uploads/2025/10/shanghai-masters-780x470.jpg" alt="Histórico: seis argentinos en la segunda ronda del Masters 1000 de Shanghai" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Histórico: seis argentinos en la segunda ronda del Masters 1000 de Shanghai</h3>
+      <p>El tenis argentino firmó una marca inédita en el Masters 1000 de Shanghai: por primera vez en la historia del torneo, seis raquetas nacionales alcanzaron la segunda ronda. Sebastián Báez, Thiago Tirante, Juan Manuel Cerúndolo y Camilo Ugo Carabelli ganaron sus partidos de debut y se sumaron a Francisco Cerúndolo y Tomás Etcheverry, que ingresaban directamente como preclasificados. Báez y Ugo Carabelli, además, cortaron rachas de varias derrotas consecutivas en el circuito. El desafío mayor será para Juan Manuel Cerúndolo, que enfrentará a Carlos Alcaraz, número tres del mundo. El récord anterior era de cuatro argentinos, en 2023 y 2025. La mejor actuación nacional en Shanghai sigue siendo la final de Juan Martín del Potro en 2013.</p>
+      <div class="byline">Por <b>Caro Méndez</b> · El Mensajero Noticias</div><div class="src">Fuente: Olé</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.sportal.it/wp-content/uploads/2025/05/jannik_sinner_cf-9.webp" alt="Bombazo en el tenis: Sinner se pierde el resto de 2026 y Zverev será el nuevo número uno" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Bombazo en el tenis: Sinner se pierde el resto de 2026 y Zverev será el nuevo número uno</h3>
+      <p>El tenis mundial se sacudió con un anuncio inesperado: Jannik Sinner, número uno del ranking, confirmó que no volverá a jugar en lo que resta de 2026 por una lesión en la rodilla. El italiano, que no compite desde que ganó Wimbledon a mediados de julio, explicó que junto a sus médicos decidió priorizar su carrera a largo plazo y estará más de cinco meses inactivo. La consecuencia directa es un cambio en la cima del tenis: el alemán Alexander Zverev, campeón este año de Roland Garros y del US Open, se convertirá en el nuevo número uno del mundo y tiene casi asegurado terminar la temporada en lo más alto. La única amenaza sería un cierre de año perfecto de Carlos Alcaraz, algo muy difícil.</p>
+      <div class="byline">Por <b>Caro Méndez</b> · El Mensajero Noticias</div><div class="src">Fuente: Agencia Noticias Argentinas</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.carburando.com/media/cache/post_desktop_2000/images/684ca161684fe604028937.jpg" alt="Colapinto busca revancha en Singapur: fin de semana Sprint en Marina Bay" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Colapinto busca revancha en Singapur: fin de semana Sprint en Marina Bay</h3>
+      <p>Después de un Gran Premio de Bahréin complicado, donde largó desde el fondo por sanciones y terminó 13°, Franco Colapinto apunta al Gran Premio de Singapur, que se corre este fin de semana en el callejero nocturno de Marina Bay. Será una fecha especial: por primera vez habrá carrera Sprint en Singapur, lo que le da al argentino de Alpine una chance extra de sumar puntos. Colapinto, 12° en el campeonato con 27 unidades, correrá por tercera vez en este circuito, uno de los más exigentes del calendario por el calor y la humedad. En Bahréin el triunfo fue para Max Verstappen, escoltado por Kimi Antonelli, líder del torneo, y Lewis Hamilton. La carrera será el domingo a las 9 de la mañana, hora argentina.</p>
+      <div class="byline">Por <b>Caro Méndez</b> · El Mensajero Noticias</div><div class="src">Fuente: Olé / Bolavip</div></div>
+    </article></div>
+    </section>
+    <section id="economia" class="seccion">
+      <div class="sechead"><h2>ECONOMÍA</h2><span>Bolsillos · Dólar · Mercados</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://www.unidiversidad.com.ar/cache/dolares-casa-cambio-reuters_1000_1100.jpg" alt="Calma cambiaria: el dólar se mantiene estable y el mercado ya proyecta el fin de año" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Calma cambiaria: el dólar se mantiene estable y el mercado ya proyecta el fin de año</h3>
+      <p>El dólar mayorista se mantiene en torno a los $1.520 y el Relevamiento de Expectativas de Mercado del Banco Central anticipa un tipo de cambio de $1.630 para diciembre de 2026, con una inflación anual proyectada del 32,4%. El BCRA acumula más de 14.700 millones de dólares en reservas en lo que va del año, impulsado por la liquidación del sector agropecuario y la colocación de deuda corporativa. La banda superior de flotación se ubica en $1.925,67. Sin embargo, los analistas advierten sobre un posible atraso cambiario: la inflación corre por encima de la devaluación nominal, lo que erosiona la competitividad de las exportaciones y mantiene latente el riesgo de una corrección brusca.</p>
+      <div class="byline">Por <b>Paula Sosa</b> · El Mensajero Noticias</div><div class="src">Fuente: inversoy.com.ar</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://ctaacordoba.org/wp-content/uploads/2024/10/tarifas-750x501-1.jpg" alt="Octubre llega con aumentos: prepagas, servicios y tarifas recargan el bolsillo" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Octubre llega con aumentos: prepagas, servicios y tarifas recargan el bolsillo</h3>
+      <p>Las familias arrancaron octubre haciendo cuentas: las prepagas aplicaron subas de hasta el 2,4%, internet, cable y telefonía ajustaron cerca del 2,5%, el gas natural aumentó un 2,24% promedio a nivel nacional y la electricidad un 1,64% en el área metropolitana. El dólar oficial del Banco Nación cerró en $1.490 para la compra y $1.540 para la venta, mientras que el dólar tarjeta trepó a los $2.002 al sumarle la percepción del 30% a cuenta de Ganancias. Con salarios que corren detrás de los precios, cada punto de aumento pega de lleno en el presupuesto familiar, que se agota cada vez más lejos de fin de mes.</p>
+      <div class="byline">Por <b>Paula Sosa</b> · El Mensajero Noticias</div><div class="src">Fuente: infodelestero.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://i.blogs.es/cd5674/diferencias-salariales/500_333.jpg" alt="Ocho de cada diez argentinos sienten que el sueldo pierde contra la inflación" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Ocho de cada diez argentinos sienten que el sueldo pierde contra la inflación</h3>
+      <p>Un relevamiento reciente reveló que el 81,8% de los argentinos percibe que sus ingresos pierden la carrera contra la inflación, en un clima de pesimismo social donde el presupuesto familiar se agota antes de fin de mes. Las paritarias que se cierran para el segundo semestre convergen, según consultoras privadas, hacia aumentos mensuales cercanos al 2%, mientras la inflación proyectada desciende progresivamente hacia el 1,6% mensual. La apuesta oficial es que esa diferencia de medio punto recomponga de a poco el poder adquisitivo. Pero la mejora todavía no alcanza para recuperar lo perdido en la primera parte del año, y el consumo sigue sin despegar.</p>
+      <div class="byline">Por <b>Paula Sosa</b> · El Mensajero Noticias</div><div class="src">Fuente: ambito.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://www.bbva.com/wp-content/uploads/2015/11/bolsa-de-valores.jpg" alt="El riesgo país perforó los 600 puntos, impulsado por el optimismo en Brasil" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>El riesgo país perforó los 600 puntos, impulsado por el optimismo en Brasil</h3>
+      <p>El riesgo país argentino cayó por debajo de los 600 puntos básicos, favorecido por la mejora del clima financiero regional tras las elecciones en Brasil. El optimismo del otro lado de la frontera contagió a los activos locales: subieron los bonos y bajó la percepción de riesgo. Para los inversores, el escenario abre oportunidades en instrumentos en pesos y títulos soberanos, aunque persisten las dudas sobre la actividad económica interna y la incertidumbre política de mediano plazo. Los analistas advierten que la mejora externa no exime a la Argentina de sus propios desafíos: consumo frenado, inversión en retroceso y una inflación que todavía corre muy por encima de la devaluación del peso.</p>
+      <div class="byline">Por <b>Paula Sosa</b> · El Mensajero Noticias</div><div class="src">Fuente: infobae.com</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://radcity.net/wp-content/uploads/2013/09/WallStreetPic-1.jpg" alt="Wall Street en máximos históricos, petróleo en alza y la Fed en la mira" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Wall Street en máximos históricos, petróleo en alza y la Fed en la mira</h3>
+      <p>Los mercados globales atraviesan una semana intensa: el S&amp;P 500 y el Nasdaq tocaron nuevos máximos históricos antes de retroceder, mientras el rendimiento del bono del Tesoro estadounidense a diez años ronda el 5,36%, su nivel más alto en casi dos décadas. El petróleo WTI se acerca a los 90 dólares por barril en medio de las tensiones entre Estados Unidos e Irán. En Europa, la incertidumbre fiscal y política en Francia presiona a los bonos y hunde al euro a mínimos de 17 meses. Esta semana la atención estará puesta en las actas de la Reserva Federal y en los datos de inflación de América Latina, claves para definir el rumbo de las tasas de interés.</p>
+      <div class="byline">Por <b>Paula Sosa</b> · El Mensajero Noticias</div><div class="src">Fuente: marketpoints.substack.com</div></div>
+    </article></div>
+    </section>
+    <section id="paranormal" class="seccion">
+      <div class="sechead"><h2>PARANORMAL</h2><span>Misterios · Ovnis · Duendes</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://api.eremedia.com/wp-content/uploads/2023/06/bigstock-Ufo-Flying-Spaceship-With-Rays-465540403-700x467.jpg" alt="Luces en forma de V sobre Buenos Aires: el apagón que despertó al misterio" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Luces en forma de V sobre Buenos Aires: el apagón que despertó al misterio</h3>
+      <p>La noche del 19 de septiembre, un apagón masivo dejó sin luz a unos 600.000 usuarios del área metropolitana de Buenos Aires por una falla en la subestación Malaver, en San Martín. Y en plena oscuridad, varios vecinos apuntaron sus celulares al cielo: en un video de apenas 15 segundos se distinguen tres luces brillantes formando una especie de V. Las imágenes se viralizaron en minutos y las teorías no tardaron en aparecer. Ningún organismo oficial, ni la Fuerza Aérea ni la aviación civil, atribuyó el fenómeno a naves desconocidas. Los especialistas barajan satélites o drones con luces LED, aunque admiten que las formaciones registradas no coinciden con el típico tren de Starlink. El caso sigue abierto y el video, dando vueltas por las redes.</p>
+      <div class="byline">Por <b>Víctor Salazar</b> · El Mensajero Noticias</div><div class="src">Fuente: Pipol.News / Radio Imagina</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://onlyhdwallpapers.com/ufo-over-rural-field-thumbnail.jpg?v=1787082834" alt="Zona 72: el rincón de La Plata donde el cielo lleva 70 años dando que hablar" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Zona 72: el rincón de La Plata donde el cielo lleva 70 años dando que hablar</h3>
+      <p>Entre las calles 10 y 20, sobre la avenida 72 y a metros del histórico barrio Meridiano V, existe una franja que los platenses conocen bien: la Zona 72. Desde mediados de la década de 1950 se acumulan allí testimonios de luces extrañas, objetos de pequeñas dimensiones y misteriosas marcas en el pasto. Con los años, el lugar se convirtió en un punto de interés para la Fundación Argentina de Ovnilogía por la reiteración de los relatos. Ahora, en pleno mes de Halloween, un medio local lanzó una serie especial sobre los misterios de la ciudad y eligió a la Zona 72 como protagonista. Setenta años después, el enigma sigue intacto y los vecinos, mirando al cielo.</p>
+      <div class="byline">Por <b>Víctor Salazar</b> · El Mensajero Noticias</div><div class="src">Fuente: Punto Capital Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://static.displate.com/460x640/displate/2014-09-24/5df969041e57d4578a9ad48ae4e533ce.jpg" alt="La &#x27;plaga de duendes&#x27; que aterrorizó a Macul y volvió a la memoria 30 años después" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>La &#x27;plaga de duendes&#x27; que aterrorizó a Macul y volvió a la memoria 30 años después</h3>
+      <p>Entre 1994 y 1995, los vecinos de Macul, en Santiago de Chile, hablaban de algo inquietante: pequeños seres que escondían objetos, provocaban ruidos en la noche y aparecían cerca de sitios eriazos y la precordillera. La historia quedó instalada en la memoria colectiva de quienes eran niños entonces. En agosto pasado, una usuaria de Instagram preguntó si alguien más recordaba la supuesta plaga de duendes, y su publicación se llenó de testimonios: familias que aún conservan a Fermín, un duende llegado a una casa en 1984, relatos de los duendes peluqueros y sus misteriosas trenzas. Investigadores del folclore explican por qué estos relatos cruzan generaciones. Treinta años después, los duendes de Macul siguen dando que hablar.</p>
+      <div class="byline">Por <b>Víctor Salazar</b> · El Mensajero Noticias</div><div class="src">Fuente: Radio Imagina / LUN</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://i.natgeofe.com/n/1237b8bb-9762-4145-aa03-915a76c1fc53/skeleton.jpg?w=718&amp;h=539" alt="La tumba intacta de 600 años que apareció en Perú con 38 cuerpos y un pigmento sagrado" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>La tumba intacta de 600 años que apareció en Perú con 38 cuerpos y un pigmento sagrado</h3>
+      <p>Arqueólogos peruanos desenterraron en La Libertad un mausoleo que permaneció sellado bajo tierra durante seis siglos. El hallazgo, anunciado por el Ministerio de Cultura del Perú, perteneció a la élite del reino chimú, que floreció entre los años 900 y 1470. Dentro aparecieron los restos de 38 personas: una en la cámara principal y decenas más en áreas secundarias junto a armas y emblemas de metal. Lo más llamativo es que muchos cráneos conservan rastros de un pigmento rojo, probablemente cinabrio, considerado sagrado en los Andes centrales y usado en rituales funerarios. Los investigadores aseguran que la tumba revela detalles inéditos sobre las prácticas mortuorias de una de las grandes culturas prehispánicas.</p>
+      <div class="byline">Por <b>Víctor Salazar</b> · El Mensajero Noticias</div><div class="src">Fuente: UNILAD / Ministerio de Cultura del Perú</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://wp-content.miviaje.com/2020/05/gobekli-tepe-ruinas-santuario.jpg" alt="Göbekli Tepe: los primeros entierros intactos que obligan a reescribir su enigma" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Göbekli Tepe: los primeros entierros intactos que obligan a reescribir su enigma</h3>
+      <p>Tiene 11.600 años y es uno de los sitios más misteriosos del planeta. Ahora, Göbekli Tepe, en el sudeste de Turquía, vuelve a sorprender: arqueólogos hallaron los dos primeros entierros intactos del lugar, de entre el 8700 y el 8000 antes de Cristo. Uno contenía a una mujer adulta, un joven y una adolescente; el otro, a una mujer de mediana edad en posición fetal. El estudio, publicado en la revista PLOS One, propone que los cientos de huesos dispersos hallados durante décadas no fueron parte de rituales, sino que llegaron hasta allí arrastrados por la erosión. La teoría del famoso culto al cráneo tambalea, y el sitio empieza a verse como lo que quizás siempre fue: un lugar donde la gente vivía, moría y era enterrada.</p>
+      <div class="byline">Por <b>Víctor Salazar</b> · El Mensajero Noticias</div><div class="src">Fuente: The Debrief / PLOS One</div></div>
+    </article></div>
+    </section>
+    <section id="arte" class="seccion">
+      <div class="sechead"><h2>ARTE Y POESÍA</h2><span>Poesía · Literatura · Artes visuales</span></div>
+      <div class="grid"><article class="card lead">
+      <div class="imgwrap"><img loading="lazy" src="https://i.pinimg.com/originals/92/91/42/92914260692eb193ff2048655e2879ea.jpg" alt="El poema de la semana: “Río Cuarto en otoño”" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>El poema de la semana: “Río Cuarto en otoño”</h3>
+      <p>Las hojas caen sobre la plaza como cartas que nadie se animó a enviar. El río baja manso, lleva noticias de otros pueblos y las devuelve cambiadas. En la esquina del café, un viejo lee el diario al revés, como si así las noticias dolieran menos. Otoño en Río Cuarto es un poema que se escribe solo: basta mirar por la ventana y dejar que la ciudad dicte. Esta semana abrimos la sección con versos propios, porque la poesía también es noticia cuando nace en casa. Que cada lector encuentre su estrofa entre estas líneas y se anime a escribir la suya.</p>
+      <div class="byline">Por <b>Emilio Duarte</b> · El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://static.vecteezy.com/system/resources/thumbnails/072/117/087/small/open-book-with-pages-fanned-out-showcasing-text-and-details-in-a-cozy-library-setting-photo.jpg" alt="Borges, el eterno contemporáneo: por qué releerlo hoy" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Borges, el eterno contemporáneo: por qué releerlo hoy</h3>
+      <p>A casi cuatro décadas de su partida, Jorge Luis Borges sigue discutiéndose con el presente. Sus cuentos sobre laberintos, espejos y bibliotecas infinitas parecen escritos para la era de internet, donde todo se replica y nada termina de ser original. Releer “El Aleph” o “Ficciones” en 2026 es descubrir que el escritor ya había imaginado la sobrecarga de información y la pérdida del yo en la multitud digital. Las librerías reportan que sus obras nunca dejan de venderse. Quizás porque Borges no escribía sobre su tiempo, sino sobre todos los tiempos.</p>
+      <div class="byline">Por <b>Emilio Duarte</b> · El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://live.staticflickr.com/7145/6559484131_3832367610.jpg" alt="El muralismo pinta de colores las paredes de la ciudad" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>El muralismo pinta de colores las paredes de la ciudad</h3>
+      <p>Paredones grises que ayer eran olvido hoy son galerías a cielo abierto. El muralismo cordobés vive un momento de explosión: colectivos de artistas intervienen medianeras, escuelas y centros culturales con obras que mezclan identidad local, memoria y color. Cada mural cuenta una historia del barrio que lo cobija, y los vecinos ya los adoptan como puntos de encuentro y orgullo. La municipalidad acompaña con permisos y pintura, entendiendo que el arte urbano también es política cultural. Salir a caminar la ciudad se volvió, literalmente, una visita al museo.</p>
+      <div class="byline">Por <b>Emilio Duarte</b> · El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://img.myloview.com/murals/fountain-pen-on-paper-with-ink-text-on-the-wooden-desk-700-198637436.jpg" alt="Tres voces jóvenes de la poesía que tenés que leer" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Tres voces jóvenes de la poesía que tenés que leer</h3>
+      <p>La poesía argentina se renueva lejos de los grandes sellos: en fanzines, redes sociales y lecturas en bares. Tres nombres suenan con fuerza entre los lectores jóvenes: una poeta cordobesa que escribe sobre el desarraigo con versos cortos como puñaladas; un bonaerense que mezcla lunfardo y ternura en poemas de barrio; y una mendocina que convierte el paisaje del vino en metáfora del amor. Los tres publicaron este año y ya agotan tiradas independientes. La poesía no murió: cambió de escenario y habla el idioma de los que vienen.</p>
+      <div class="byline">Por <b>Emilio Duarte</b> · El Mensajero Noticias</div></div>
+    </article>
+<article class="card">
+      <div class="imgwrap"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/572046f67c65e4922917b5ad/1491540320969-75VQB5CGOD63RMY619AI/DSC05064+%282000x1331%29.jpg?format=2500w" alt="Escribir para sanar: el auge de los talleres literarios" onerror="this.style.display='none'"></div>
+      <div class="txt"><h3>Escribir para sanar: el auge de los talleres literarios</h3>
+      <p>Cada vez más gente se sienta a escribir no para publicar, sino para entenderse. Los talleres literarios se multiplican en Río Cuarto y la región: jubilados que narran su infancia, jóvenes que versifican sus angustias, profesionales que encuentran en la página un diván accesible. Los coordinadores coinciden: escribir ordena el pensamiento y la lectura en voz alta rompe soledades. No hace falta talento previo, solo ganas de contar. En tiempos de pantallas veloces, la lentitud de la palabra escrita se volvió un refugio. Y cada taller que abre es una pequeña victoria de la literatura.</p>
+      <div class="byline">Por <b>Emilio Duarte</b> · El Mensajero Noticias</div></div>
+    </article></div>
+    </section>
+  <section id="entrevistas" class="seccion">
+    <div class="sechead"><h2>ENTREVISTAS</h2><span>mano a mano</span></div>
+    <div class="entrev">
+      <h3>🎙️ La primera entrevista se está cocinando…</h3>
+      <p>Muy pronto, mano a mano con los protagonistas de la semana. ¿A quién te gustaría que entrevistemos? Escribinos a través de Radio Intensa y lo hacemos realidad.</p>
+    </div>
+  </section>
+  <section id="horoscopo" class="seccion">
+    <div class="sechead"><h2>HORÓSCOPO</h2><span>la semana signo por signo</span></div>
+    <div class="horogrid">
+<div class="signo"><h4>Aries (21 mar – 19 abr)</h4><p>Semana de decisiones, Aries. Eso que venís pateando hace días pide resolución y los astros te empujan a actuar. En el amor, una conversación pendiente puede aclarar todo. Consejo de la semana: contá hasta diez antes de mandar ese mensaje.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Tauro (20 abr – 20 may)</h4><p>La calma rinde frutos, Tauro. Un tema de dinero empieza a ordenarse y vas a sentir alivio. En lo laboral, tu constancia no pasa desapercibida. Consejo de la semana: date un gusto sin culpa, te lo ganaste.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Géminis (21 may – 20 jun)</h4><p>Tu palabra tiene poder esta semana, Géminis. Una idea que compartas puede abrirte una puerta inesperada. Cuidado con prometer más de lo que podés cumplir. Consejo de la semana: escuchá el doble de lo que hablás.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Cáncer (21 jun – 22 jul)</h4><p>Semana emocional intensa, Cáncer. La familia reclama tu atención y vos sabés darla como nadie. Pero no te olvides de vos. Consejo de la semana: poné un límite amable, no es egoísmo, es salud.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Leo (23 jul – 22 ago)</h4><p>Brillás sin esfuerzo esta semana, Leo. Te llegan reconocimientos y miradas de admiración. En el amor, alguien se anima a dar el primer paso. Consejo de la semana: compartí el escenario, el brillo se multiplica.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Virgo (23 ago – 22 sep)</h4><p>El orden es tu superpoder, Virgo, y esta semana lo vas a necesitar. Un imprevisto pone a prueba tu planificación, pero salís airoso. Consejo de la semana: lo perfecto es enemigo de lo bueno, aflojá un poco.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Libra (23 sep – 22 oct)</h4><p>Semana de balances, Libra. Una relación —de pareja, amistad o trabajo— pide sinceridad. La diplomacia que te caracteriza será clave. Consejo de la semana: decir que no también es una forma de equilibrio.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Escorpio (23 oct – 21 nov)</h4><p>Intensidad al máximo, Escorpio. Lo que otros callan, vos lo ves con claridad. Un secreto puede salir a la luz: manejalo con sabiduría. Consejo de la semana: transformá la sospecha en pregunta directa.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Sagitario (22 nov – 21 dic)</h4><p>Ganas de aventura, Sagitario. Un plan de viaje o un proyecto nuevo te devuelve la chispa. En lo económico, evitá gastos impulsivos. Consejo de la semana: la mejor aventura a veces es terminar lo empezado.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Capricornio (22 dic – 19 ene)</h4><p>Tu esfuerzo silencioso empieza a notarse, Capricornio. Alguien importante valora tu trabajo más de lo que imaginás. En la salud, prestá atención al descanso. Consejo de la semana: delegar no es perder el control.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Acuario (20 ene – 18 feb)</h4><p>Ideas originales brotan sin parar, Acuario. Esta semana tu creatividad puede resolver un problema ajeno y ganarte un aliado. En el amor, la sinceridad rinde más que el misterio. Consejo de la semana: anotá todo, las buenas ideas se escapan.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+<div class="signo"><h4>Piscis (19 feb – 20 mar)</h4><p>La intuición te guía bien, Piscis. Eso que sentís en el cuerpo suele ser cierto: hacéle caso. Un reencuentro te llena el corazón. Consejo de la semana: el arte y la música te recargan, buscalos.</p><div class="byline">Por <b>Estela Vidal</b></div></div>
+    </div>
+  </section>
+  <div class="adbox">
+    <b>ESPACIO PUBLICITARIO</b><br>
+    ¿Querés que tu comercio o empresa aparezca acá?<br>Escribinos y te contamos cómo anunciar en El Mensajero Noticias.
+  </div>
+</div>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">El Mensajero Noticias</div>
+      <div><i>&ldquo;La verdad puede más que la razón&rdquo;</i></div>
+      <div style="margin-top:.5rem">Semanario digital argentino · Edición Nº 1</div>
+    </div>
+    <div>
+      <div><a href="https://radio-intensa.vercel.app" target="_blank" rel="noopener">📻 Radio Intensa</a></div>
+      <div><a href="https://www.youtube.com/@intensaradio" target="_blank" rel="noopener">▶ YouTube</a></div>
+      <div><a href="https://www.instagram.com/intensaradio24.7" target="_blank" rel="noopener">📸 Instagram</a></div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:1.2rem;opacity:.85">© 2026 El Mensajero Noticias · <b>Almafuerte medios y contenidos</b> · Todos los derechos reservados<br><span style="opacity:.7;font-size:.78rem">Almafuerte medios y contenidos es propietaria de El Mensajero Noticias y de Radio Intensa. Queda prohibida la reproducción total o parcial de los contenidos sin autorización expresa.</span></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  var el=document.getElementById('visitas');
+  try{
+    var c=supabase.createClient('https://lhatspnvxujisxyigvbp.supabase.co','sb_publishable_mtsrlTdaQCgMKzfOobIpiQ_G_Io0CiH');
+    c.rpc('bump_semanario_visits').then(function(r){
+      if(r.error||typeof r.data!=='number') throw 0;
+      el.textContent=Number(r.data).toLocaleString('es-AR');
+    }).catch(function(){el.textContent='340';});
+  }catch(e){el.textContent='340';}
+})();
+</script>
+</body>
+</html>
