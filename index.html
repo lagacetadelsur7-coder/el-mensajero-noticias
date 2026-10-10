@@ -110,6 +110,12 @@ footer .fbrand{font-family:Georgia,serif;font-size:1.2rem;color:#fff;margin-bott
 .frase-autor{margin-top:1rem;font-family:Arial,Helvetica,sans-serif;color:var(--gold);font-weight:700}
 .cargando{padding:3rem 0;text-align:center;color:var(--mut);font-family:Arial,sans-serif}
 @media(max-width:760px){.hero{grid-template-columns:1fr}.card.lead{flex-direction:column}.hero .main h1{font-size:1.5rem}.banner-radio{justify-content:center;text-align:center}.br-logo{width:100px;height:100px}.frase-txt{font-size:1.15rem}.modal{padding:1.4rem}}
+/* Proteccion anti-copia */
+body{-webkit-user-select:none;user-select:none}
+input,textarea{-webkit-user-select:text;user-select:text}
+img{-webkit-user-drag:none;user-drag:none}
+#protToast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a2e;border:1px solid #c9a227;color:#fff;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:9999;box-shadow:0 0 18px rgba(201,162,39,.4);font-family:Georgia,serif}
+#protToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body id="inicio">
@@ -338,6 +344,25 @@ function cargar(){
     document.getElementById('tapa').innerHTML='<div class="cargando">No se pudo cargar la edición. Revisá tu conexión e intentá de nuevo.</div>';
   });
 }
+/* Proteccion anti-copia */
+(function(){
+  var toast=document.createElement("div");
+  toast.id="protToast"; toast.textContent="🔒 Contenido protegido · El Mensajero Noticias";
+  document.body.appendChild(toast);
+  var tt=null;
+  function aviso(){ toast.classList.add("show"); clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove("show");},1800); }
+  document.addEventListener("contextmenu",function(e){ e.preventDefault(); aviso(); });
+  document.addEventListener("dragstart",function(e){ e.preventDefault(); });
+  document.addEventListener("copy",function(e){ var el=e.target; if(!(el&&(el.tagName==="INPUT"||el.tagName==="TEXTAREA"))){ e.preventDefault(); aviso(); } });
+  document.addEventListener("keydown",function(e){
+    var el=e.target, inField=el&&(el.tagName==="INPUT"||el.tagName==="TEXTAREA");
+    if(e.key==="F12"){ e.preventDefault(); aviso(); return; }
+    if((e.ctrlKey||e.metaKey)&&!inField){
+      var k=e.key.toLowerCase();
+      if(k==="u"||k==="s"||k==="p"||(e.shiftKey&&(k==="i"||k==="j"||k==="c"))){ e.preventDefault(); aviso(); }
+    }
+  });
+})();
 cargar();
 </script>
 </body>
