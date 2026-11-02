@@ -253,14 +253,14 @@ function cardHTML(a,byline,sec,idx,lead){
     +'<button class="leer-mas" type="button">Leer nota completa →</button></div></article>';
 }
 function renderTapa(){
-  var pol=(DATA.politica.articles||[])[0], inter=(DATA.internacionales.articles||[])[0], loc=(DATA.locales.articles||[])[0];
+  var pol=(DATA.politica.articles||[])[0], inter=(DATA.internacionales.articles||[])[0], loc=(DATA.locales.articles||[])[0], para=(DATA.paranormal.articles||[])[0];
   if(!pol) return;
-  var side=[["internacionales",inter],["locales",loc]].map(function(x){
+  var side=[["internacionales",inter],["locales",loc],["paranormal",para]].map(function(x){
     var s=x[0],a=x[1]; if(!a) return "";
     var meta=SECTIONS.find(function(m){return m.slug===s;});
     return '<div class="mini" data-sec="'+s+'" data-idx="0" style="cursor:pointer">'
       +'<img src="'+esc(a.image_url||"")+'" alt="" onerror="this.style.display=\'none\'">'
-      +'<h3>'+esc(a.headline)+'</h3><div class="byline">Por <b>'+esc(meta.byline)+'</b></div></div>';
+      +'<h3>'+esc(a.headline)+'</h3><div class="byline">Por <b>'+esc(a.byline||meta.byline)+'</b></div></div>';
   }).join("");
   document.getElementById('tapa').innerHTML =
     '<div class="tapa"><div class="kicker">● LA TAPA</div><div class="hero">'
@@ -274,7 +274,7 @@ function renderTapa(){
 function renderSecciones(){
   document.getElementById('secciones').innerHTML = SECTIONS.map(function(m){
     var arts=(DATA[m.slug].articles||[]);
-    var cards=arts.map(function(a,i){ return cardHTML(a,m.byline,m.slug,i,i===0); }).join("");
+    var cards=arts.map(function(a,i){ return cardHTML(a,a.byline||m.byline,m.slug,i,i===0); }).join("");
     return '<section id="'+m.slug+'" class="seccion"><div class="sechead"><h2>'+esc(m.title)+'</h2><span>'+esc(m.desc)+'</span></div>'
       +'<div class="grid">'+cards+'</div></section>';
   }).join("");
@@ -321,7 +321,7 @@ function notaDe(sec,idx){
   var meta=sec==="curiosidades"?{byline:"Emilio Duarte",title:"CURIOSIDADES"}:SECTIONS.find(function(m){return m.slug===sec;});
   var a=((DATA[sec]||{}).articles||[])[idx];
   if(!a||!meta) return null;
-  return {h:a.headline,b:a.body,img:a.image_url||"",by:meta.byline,sec:meta.title};
+  return {h:a.headline,b:a.body,img:a.image_url||"",by:(a.byline||meta.byline),sec:meta.title};
 }
 function abrirNota(sec,idx){
   var n=notaDe(sec,idx); if(!n) return;
