@@ -6,6 +6,7 @@
 <title>El Mensajero Noticias · Semanario Digital Argentino</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
 <meta name="description" content="El Mensajero Noticias — semanario digital argentino. La verdad puede más que la razón.">
+<script>try{var _t=localStorage.getItem('mensajero-theme');if(_t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <style>
 :root{--navy:#16265c;--gold:#c9a227;--paper:#faf8f2;--ink:#1c1c28;--mut:#6b6b76;--line:#e5ddcb}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -140,6 +141,18 @@ nav a{flex-shrink:0}
 }
 @media(max-width:760px){.tapa{padding:1.1rem .95rem}.hero .main h1{font-size:1.65rem}}
 @media(max-width:400px){.hero .main h1{font-size:1.4rem}}
+
+html[data-theme="dark"]{--paper:#131328;--ink:#eceaf6;--mut:#a8a8c2;--line:#2e2e50}
+html[data-theme="dark"] .card,html[data-theme="dark"] .entrev,html[data-theme="dark"] .signo,html[data-theme="dark"] .tapa{background:#1c1c38}
+html[data-theme="dark"] .card p,html[data-theme="dark"] .signo p,html[data-theme="dark"] .efe-txt p,html[data-theme="dark"] .entrev p{color:#d8d8ea}
+html[data-theme="dark"] .card .imgwrap{background:#262640}
+html[data-theme="dark"] .tapa{border-color:#3d3d6e}
+html[data-theme="dark"] .sechead h2,html[data-theme="dark"] .signo h4,html[data-theme="dark"] .efe-txt h4{color:#e8e6ff}
+html[data-theme="dark"] .mini-tag{color:#9fb4ff}
+html[data-theme="dark"] .masthead img.logo{background:#faf8f2;border-radius:12px;padding:.3rem .6rem}
+html[data-theme="dark"] .btn:hover{background:#2a2a4a;color:var(--gold)}
+.theme-btn{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:.35rem .8rem;font-size:1rem;cursor:pointer;font-family:Arial,Helvetica,sans-serif}
+.theme-btn:hover{background:rgba(255,255,255,.15)}
 /* Proteccion anti-copia */
 body{-webkit-user-select:none;user-select:none}
 input,textarea{-webkit-user-select:text;user-select:text}
@@ -152,6 +165,7 @@ img{-webkit-user-drag:none;user-drag:none}
 <div class="topbar">
   <div class="ed" id="edicion">EL MENSAJERO NOTICIAS</div>
   <div class="counter"><img src="assets/mate-bandera.gif" alt="Mate argentino"><span>VISITAS&nbsp;<b id="visitas">…</b></span></div>
+  <button id="themeToggle" class="theme-btn" type="button" aria-label="Cambiar entre modo día y noche">🌙</button>
 </div>
 <header class="masthead">
   <img class="logo" src="assets/logo-mensajero.webp" alt="El Mensajero Noticias">
@@ -374,6 +388,8 @@ function cargar(){
     document.getElementById('tapa').innerHTML='<div class="cargando">No se pudo cargar la edición. Revisá tu conexión e intentá de nuevo.</div>';
   });
 }
+
+(function(){try{var b=document.getElementById('themeToggle');if(!b)return;function upd(){var d=document.documentElement.getAttribute('data-theme')==='dark';b.textContent=d?'☀️':'🌙';b.title=d?'Modo día':'Modo noche';}b.addEventListener('click',function(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('mensajero-theme','light');}catch(e){}}else{document.documentElement.setAttribute('data-theme','dark');try{localStorage.setItem('mensajero-theme','dark');}catch(e){}}upd();});upd();}catch(e){}})();
 /* Proteccion anti-copia */
 (function(){
   var toast=document.createElement("div");
