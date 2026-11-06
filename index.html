@@ -25,13 +25,17 @@ nav a{color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:.78rem;font-we
 nav a:hover{background:var(--gold);color:var(--navy)}
 @media (max-width:820px){nav a{font-size:.7rem;padding:.65rem .7rem;letter-spacing:.04em}}
 .wrap{max-width:1120px;margin:0 auto;padding:0 1rem}
-.tapa{padding:1.6rem 0 .6rem}
-.tapa .kicker{font-family:Arial,sans-serif;color:var(--gold);font-weight:800;letter-spacing:.25em;font-size:.75rem;margin-bottom:.6rem}
+.tapa{margin:1.4rem 0 .6rem;background:#fff;border:3px solid var(--navy);border-radius:16px;padding:1.4rem 1.5rem 1.5rem;box-shadow:0 14px 34px rgba(22,38,92,.16);position:relative}
+.tapa::after{content:"";position:absolute;inset:7px;border:1px solid var(--gold);border-radius:11px;pointer-events:none}
+.tapa-top{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem}
+.tapa-fecha{font-family:Arial,Helvetica,sans-serif;font-size:.8rem;color:var(--mut);letter-spacing:.04em}
+.tapa .kicker{display:inline-block;background:var(--navy);color:var(--gold);font-family:Arial,sans-serif;font-weight:800;letter-spacing:.22em;font-size:.78rem;padding:.55rem 1.1rem;border-radius:999px;margin-bottom:0}
 .hero{display:grid;grid-template-columns:1.6fr 1fr;gap:1.2rem}
-.hero .main h1{font-size:2rem;line-height:1.2;margin:.5rem 0}
+.hero .main h1{font-size:2.5rem;line-height:1.15;margin:.5rem 0}
 .hero .main img{width:100%;border-radius:8px}
 .hero .side{display:flex;flex-direction:column;gap:1rem}
-.mini{border-top:2px solid var(--navy);padding-top:.6rem}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.75rem .85rem}
+.mini-tag{font-family:Arial,Helvetica,sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.18em;color:var(--navy);margin-bottom:.3rem}
 .mini img{width:100%;border-radius:6px;margin-bottom:.4rem}
 .mini h3{font-size:1.05rem}
 .seccion{padding:1.8rem 0 .4rem;border-top:1px solid var(--line);margin-top:1rem}
@@ -134,6 +138,8 @@ nav a{flex-shrink:0}
 .hero .main h1{font-size:1.25rem}
 .card h3{font-size:1rem}
 }
+@media(max-width:760px){.tapa{padding:1.1rem .95rem}.hero .main h1{font-size:1.65rem}}
+@media(max-width:400px){.hero .main h1{font-size:1.4rem}}
 /* Proteccion anti-copia */
 body{-webkit-user-select:none;user-select:none}
 input,textarea{-webkit-user-select:text;user-select:text}
@@ -260,10 +266,10 @@ function renderTapa(){
     var meta=SECTIONS.find(function(m){return m.slug===s;});
     return '<div class="mini" data-sec="'+s+'" data-idx="0" style="cursor:pointer">'
       +'<img src="'+esc(a.image_url||"")+'" alt="" onerror="this.style.display=\'none\'">'
-      +'<h3>'+esc(a.headline)+'</h3><div class="byline">Por <b>'+esc(a.byline||meta.byline)+'</b></div></div>';
+      +'<div class="mini-tag">'+esc(meta.title)+'</div><h3>'+esc(a.headline)+'</h3><div class="byline">Por <b>'+esc(a.byline||meta.byline)+'</b></div></div>';
   }).join("");
   document.getElementById('tapa').innerHTML =
-    '<div class="tapa"><div class="kicker">● LA TAPA</div><div class="hero">'
+    '<div class="tapa"><div class="tapa-top"><div class="kicker">📰 EN TAPA HOY</div><div class="tapa-fecha">Edición Nº '+((DATA.edicion&&DATA.edicion.numero)||'')+' · '+((DATA.edicion&&DATA.edicion.fecha)||'')+'</div></div><div class="hero">'
     +'<div class="main" data-sec="politica" data-idx="0" style="cursor:pointer">'
     +'<img src="'+esc(pol.image_url||"")+'" alt="'+esc(pol.headline||"")+'" onerror="this.style.display=\'none\'">'
     +'<h1>'+esc(pol.headline)+'</h1><p>'+esc(excerpt(pol.body,340))+'</p>'
