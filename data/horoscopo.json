@@ -1,1 +1,53 @@
-{"articles":[{"body":"Noviembre te encuentra con ganas de cerrar un ciclo y abrir otro. En el trabajo, una decisión que venías postergando se toma sola cuando aparecen los datos que faltaban. En el amor, una charla sincera ordena lo que estaba confuso. Cuidá el sueño: dormir más temprano cambia la semana.","headline":"Aries (21 mar – 19 abr)"},{"body":"La semana pide paciencia con el dinero: un gasto imprevisto se acomoda si revisás el presupuesto sin dramatizar. En lo afectivo, un encuentro familiar trae una alegría sencilla y necesaria. Hacia el domingo, una caminata larga te devuelve la calma que buscabas.","headline":"Tauro (20 abr – 20 may)"},{"body":"Tu mente anda rápida y eso juega a favor si la enfocás en un solo proyecto. Una llamada inesperada trae una propuesta interesante: escuchala antes de responder. En pareja, el humor compartido afloja una tensión vieja. Evitá discutir por mensajes.","headline":"Géminis (21 may – 20 jun)"},{"body":"La casa vuelve al centro: ordenar, reparar algo pendiente o recibir a alguien querido te hace bien. Un familiar te pide consejo y tu escucha vale más que cualquier solución. En el trabajo, no te cargues con tareas ajenas esta semana.","headline":"Cáncer (21 jun – 22 jul)"},{"body":"Brillás cuando mostrás lo que hacés sin vueltas. Un reconocimiento llega de donde menos lo esperabas y te empuja a animarte a más. En el amor, una salida distinta rompe la rutina. Moderá los gastos impulsivos del fin de semana.","headline":"Leo (23 jul – 22 ago)"},{"body":"Un papel o trámite que parecía dormido se reactiva con una gestión simple. En lo personal, soltar un detalle que no controlás te devuelve energía. La salud agradece movimiento suave y comidas a horario. Alguien cercano valora tu ayuda silenciosa.","headline":"Virgo (23 ago – 22 sep)"},{"body":"Semana de balances y buena compañía: una conversación pendiente se resuelve con calma y sin reproches. En lo económico, llega un alivio pequeño pero oportuno. En pareja, planear algo juntos renueva el entusiasmo. El domingo, descansar es prioridad. Una salida con amigos completa la semana.","headline":"Libra (23 sep – 22 oct)"},{"body":"Tu temporada sigue intensa: cerrás un tema que te pesaba y recuperás aire. Un cobro o reintegro demorado se concreta. En el amor, la claridad vale más que las medias palabras. Reservá un rato a solas para ordenar ideas y deseos.","headline":"Escorpio (23 oct – 21 nov)"},{"body":"Ganas de salir, aprender y moverte marcan estos días. Un plan al aire libre, aunque sea corto, te recarga más que quedarte en casa. En el trabajo, una idea tuya encuentra apoyo. Cuidá las promesas: mejor decir menos y cumplir todo.","headline":"Sagitario (22 nov – 21 dic)"},{"body":"La constancia da frutos: un esfuerzo largo empieza a notarse y alguien lo reconoce. En casa, pedir ayuda a tiempo evita un malestar mayor. En el amor, un gesto práctico dice más que un discurso. El viernes trae una noticia laboral alentadora.","headline":"Capricornio (22 dic – 19 ene)"},{"body":"Una idea original se convierte en plan cuando la compartís con la persona indicada. Una amistad que estaba distante reaparece con buena onda. En lo económico, evitá compras por impulso a fin de mes. El miércoles, una coincidencia abre una charla valiosa.","headline":"Acuario (20 ene – 18 feb)"},{"body":"La intuición anda afinada: prestale atención a esa primera impresión antes de contestar algo importante. En lo creativo, un rato de tranquilidad te devuelve una idea que creías perdida. En el amor, hablar con simpleza acerca. Dormir bien ordena también las emociones.","headline":"Piscis (19 feb – 20 mar)"}],"section":"HORÓSCOPO"}
+{
+  "articles": [
+    {
+      "headline": "Aries (21 mar – 19 abr)",
+      "body": "Semana para pisar el freno y mirar el camino con calma. Una conversación pendiente se resuelve mejor de lo que imaginás si la encaras con paciencia. En el trabajo, tu energía contagia: usala para ordenar, no para correr. El fin de semana trae un respiro que viene bien."
+    },
+    {
+      "headline": "Tauro (20 abr – 20 may)",
+      "body": "La semana te pide constancia más que apuro. Un proyecto que viene lento empieza a mostrar resultados si le das un empujón final. En casa, un gesto sencillo vale más que mil palabras. Cuidá el descanso: el cuerpo te avisa antes que la cabeza."
+    },
+    {
+      "headline": "Géminis (21 may – 20 jun)",
+      "body": "Tu curiosidad está en su mejor momento y eso abre puertas. Una charla casual puede terminar en una buena idea o en un plan inesperado. Evitá prometer más de lo que podés cumplir. El jueves trae una noticia que te va a sacar una sonrisa."
+    },
+    {
+      "headline": "Cáncer (21 jun – 22 jul)",
+      "body": "Semana de afectos y de hogar. Alguien cercano necesita tu escucha más que tus consejos: estar alcanza. En lo laboral, un tema que parecía trabado se destraba con una palabra justa. El domingo, un rato de silencio te ordena por dentro."
+    },
+    {
+      "headline": "Leo (23 jul – 22 ago)",
+      "body": "Tu brillo natural vuelve a notarse y te conviene mostrar lo que sabés hacer. Una propuesta que parecía lejana se acerca: mirala sin apuro y con los pies en la tierra. En el amor, un detalle inesperado cambia el clima. El viernes es tu mejor día."
+    },
+    {
+      "headline": "Virgo (23 ago – 22 sep)",
+      "body": "Semana para poner orden en lo chico y respirar en lo grande. Un papel, una cuenta o un trámite que venías postergando se resuelve más fácil de lo que creías. No cargues con problemas ajenos: ayudás más cuando estás entero. Regalate una tarde libre."
+    },
+    {
+      "headline": "Libra (23 sep – 22 oct)",
+      "body": "El equilibrio que buscás llega por el lado menos pensado: una charla, un paseo, una pausa. En el trabajo, tu capacidad para mediar entre otros vale oro esta semana. En lo personal, animáte a decir lo que venís guardando. La semana cierra en armonía."
+    },
+    {
+      "headline": "Escorpio (23 oct – 21 nov)",
+      "body": "Es tu temporada y se nota: tenés la mirada más clara que nunca. Un asunto del pasado pide cierre y esta semana es buena para dárselo. En el trabajo, confiá en tu instinto antes que en los rumores. Un encuentro cercano te devuelve la energía."
+    },
+    {
+      "headline": "Sagitario (22 nov – 21 dic)",
+      "body": "Semana de ganas de salir y de aire nuevo. Un plan de viaje o de estudio empieza a tomar forma si le dedicás un rato por día. En lo económico, mejor prudencia que impulso. El fin de semana trae una alegría simple que vale doble."
+    },
+    {
+      "headline": "Capricornio (22 dic – 19 ene)",
+      "body": "Tu esfuerzo constante empieza a ser visto por quienes importan. No esperes aplausos: el reconocimiento llega en forma de confianza. En casa, un cambio chico mejora el clima de todos los días. El miércoles, una buena noticia te ordena la agenda."
+    },
+    {
+      "headline": "Acuario (20 ene – 18 feb)",
+      "body": "Semana de ideas nuevas y de gente nueva. Una propuesta distinta a lo habitual merece que la escuches con la mente abierta. En lo afectivo, un mensaje inesperado te alegra el día. No te apures: lo bueno de esta semana se cocina a fuego lento."
+    },
+    {
+      "headline": "Piscis (19 feb – 20 mar)",
+      "body": "Tu sensibilidad está afinada y eso te ayuda a entender lo que otros no dicen. En el trabajo, un detalle tuyo hace la diferencia. Cuidá tus tiempos: decir que no también es cuidarse. El fin de semana, el agua o un paseo al aire libre te renuevan."
+    }
+  ],
+  "section": "HORÓSCOPO"
+}

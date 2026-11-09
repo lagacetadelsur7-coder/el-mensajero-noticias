@@ -1,1 +1,47 @@
-{"articles":[{"body":"El jueves 30 de octubre se cumplen 43 años de una de las jornadas más importantes de la historia argentina reciente: las elecciones de 1983, que pusieron fin a más de siete años de dictadura cívico-militar y devolvieron el voto a millones de ciudadanos. Después del golpe del 24 de marzo de 1976, la persecución, la censura y las desapariciones habían silenciado la vida política; la derrota en la Guerra de Malvinas, en 1982, terminó de quebrar al régimen y obligó a convocar a comicios.\n\nAquel domingo votó más del 85 por ciento del padrón, casi 18 millones de electores. La fórmula radical de Raúl Alfonsín y Víctor Martínez se impuso con el 51,75 por ciento de los votos frente al justicialista Ítalo Luder, en la primera derrota electoral del peronismo. El 10 de diciembre, Alfonsín asumió la Presidencia y comenzó el período democrático más largo de la historia del país, que continúa hasta hoy.\n\nPor eso esta es la efeméride más importante de la semana: por encima de otros aniversarios que también caen entre el 26 de octubre y el 1 de noviembre, como el crack de Wall Street de 1929 o las tesis de Lutero de 1517, el 30 de octubre de 1983 cambió la vida institucional de los argentinos. De aquel gobierno surgieron la Comisión Nacional sobre la Desaparición de Personas y el informe Nunca Más, y el juicio a las juntas militares, pilares de la memoria y la justicia que todavía nos interpelan.","headline":"Jueves 30: 43 años de las elecciones de 1983, el día en que la Argentina volvió a votar","image_url":"https://en.mercopress.com/data/cache/noticias/42010/600x315/alfonsin.jpg","source_name":"El Mensajero"}],"section":"EFEMÉRIDES"}
+{
+  "articles": [
+    {
+      "headline": "Lunes 9: Cae el Muro de Berlín (1989)",
+      "body": "El 9 de noviembre de 1989 cayó el Muro de Berlín, que durante 28 años había dividido en dos a la capital alemana y simbolizaba la Guerra Fría entre el Este y el Oeste. Miles de berlineses cruzaron de un lado al otro en una noche de fiesta que recorrió el mundo por televisión. Menos de un año después, Alemania volvía a ser un solo país.",
+      "source_name": "El Mensajero",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg"
+    },
+    {
+      "headline": "Martes 10: Día de la Tradición, nacimiento de José Hernández (1834)",
+      "body": "El 10 de noviembre de 1834 nació José Hernández, autor del \"Martín Fierro\", el poema gauchesco más famoso de la literatura argentina. En su honor, cada 10 de noviembre se celebra en la Argentina el Día de la Tradición. El \"Martín Fierro\", publicado en 1872, cuenta las penurias del gaucho perseguido por la autoridad y se convirtió en un símbolo de la identidad nacional.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    },
+    {
+      "headline": "Miércoles 11: Termina la Primera Guerra Mundial (1918)",
+      "body": "El 11 de noviembre de 1918 se firmó el armisticio que puso fin a la Primera Guerra Mundial, después de cuatro años de combates que dejaron millones de muertos en Europa. La firma se hizo en un vagón de tren en el bosque de Compiègne, en Francia, y entró en vigor a las 11 de la mañana. Desde entonces, el 11 de noviembre se recuerda en muchos países como el Día del Armisticio.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    },
+    {
+      "headline": "Jueves 12: Nace Sun Yat-sen, padre de la China moderna (1866)",
+      "body": "El 12 de noviembre de 1866 nació Sun Yat-sen, el revolucionario considerado el padre de la China moderna. Lideró el movimiento que derrocó en 1911 a la última dinastía imperial china y sentó las bases de la república. Sus ideas —nacionalismo, democracia y bienestar del pueblo— influyeron en la política china durante todo el siglo veinte.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    },
+    {
+      "headline": "Viernes 13: La tragedia de Armero (1985)",
+      "body": "La noche del 13 de noviembre de 1985, la erupción del volcán Nevado del Ruiz, en Colombia, provocó una avalancha de lodo que sepultó al pueblo de Armero y mató a más de 23.000 personas. Fue el segundo desastre volcánico más mortífero del siglo veinte. El caso de Omayra Sánchez, una niña de 13 años atrapada durante tres días entre los escombros, conmovió al mundo entero.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    },
+    {
+      "headline": "Sábado 14: Nace Claude Monet, padre del impresionismo (1840)",
+      "body": "El 14 de noviembre de 1840 nació en París el pintor Claude Monet, uno de los fundadores del impresionismo. Su cuadro \"Impresión, sol naciente\", de 1872, le dio nombre al movimiento, que buscaba pintar la luz y el aire libre en vez de los detalles exactos. Sus series de nenúfares, pintadas en su jardín de Giverny, están entre las obras más queridas de la historia del arte.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    },
+    {
+      "headline": "Domingo 15: Se proclama la República en Brasil (1889)",
+      "body": "El 15 de noviembre de 1889 se proclamó la República en Brasil, poniendo fin a casi setenta años de monarquía. El mariscal Deodoro da Fonseca encabezó el golpe militar que depuso al emperador Pedro II, que partió al exilio en Europa. El 15 de noviembre es hoy feriado nacional en Brasil y se celebra como el Día de la Proclamación de la República.",
+      "source_name": "El Mensajero",
+      "image_url": ""
+    }
+  ],
+  "section": "EFEMÉRIDES"
+}
